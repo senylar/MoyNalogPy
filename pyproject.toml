@@ -24,3 +24,6 @@ readme = {file = "README.md", content-type = "text/markdown"}
 [project.urls]
 "Homepage" = "https://github.com/senylar/MoyNalogPy"
 "Bug Tracker" = "https://github.com/senylar/MoyNalogPy/issues"
+
+[project.scripts]
+moynalog-auth = "MoyNalogPy.auth:main"

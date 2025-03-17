@@ -54,28 +54,40 @@ class ProfileStorage(BaseModel):
     @classmethod
     def get(cls):
         """
-        Метод для получения экземпляра класса ProfileStorage из файла profile.json.
+        Метод для получения экземпляра класса ProfileStorage из файла конфигурации.
 
         :return: экземпляр класса ProfileStorage
+        :raises FileNotFoundError: если файл конфигурации не найден
         """
-        profile_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'profile.json')
+        config_dir = os.path.expanduser("~/.moy-nalog")
+        profile_path = os.path.join(config_dir, 'profile.json')
+
+        if not os.path.exists(profile_path):
+            raise FileNotFoundError(
+                f"Файл конфигурации не найден. Выполните авторизацию с помощью команды 'moynalog-auth'")
+
         with open(profile_path, 'r') as f:
             data = json.loads(f.read())
             return cls.model_validate(data)
 
     def save(self):
         """
-        Метод для сохранения экземпляра класса ProfileStorage в файл profile.json.
+        Метод для сохранения экземпляра класса ProfileStorage в файл конфигурации.
+        Создаёт директорию ~/.moy-nalog если она не существует.
 
         :return: None
         """
-        profile_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'profile.json')
+        config_dir = os.path.expanduser("~/.moy-nalog")
+        os.makedirs(config_dir, exist_ok=True)
+        profile_path = os.path.join(config_dir, 'profile.json')
+
         with open(profile_path, 'w') as f:
             try:
                 # Пробуем использовать model_dump() (Pydantic v2)
                 f.write(json.dumps(self.model_dump()))
             except AttributeError:
                 # Запасной вариант для Pydantic v1
+                f.write(json.dumps(self.dict()))
                 f.write(json.dumps(self.dict()))
 
 
