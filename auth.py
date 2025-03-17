@@ -3,7 +3,7 @@ import random
 import requests
 import json
 
-from models.schemas import ProfileStorage
+from schemas.schemas import ProfileStorage
 
 
 def generate_device_id(length=16):
