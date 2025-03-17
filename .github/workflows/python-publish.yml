@@ -35,6 +35,9 @@ jobs:
           VERSION=$(echo "${{ github.event.inputs.version }}" | sed 's/^v//')
           sed -i "s/version = \"[^\"]*\"/version = \"$VERSION\"/" pyproject.toml
 
+      - name: Check project files
+        run: ls -la
+
       - name: Build release distributions
         run: |
           python -m pip install build
