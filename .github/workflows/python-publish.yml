@@ -65,7 +65,7 @@ jobs:
 
     environment:
       name: pypi
-      url: https://pypi.org/p/moy-nalog
+      url: https://pypi.org/p/moy-nalog-py
 
     steps:
       - name: Retrieve release distributions
