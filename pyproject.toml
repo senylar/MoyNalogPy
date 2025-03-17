@@ -1,9 +1,26 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "MoyNalogPy"
+name = "moy-nalog"
 version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.13"
-dependencies = [
-    "pydantic>=2.10.6",
-    "requests>=2.32.3",
+description = "Python клиент для работы с API сервиса Мой налог"
+readme = "README.md"
+authors = [
+    {name = "senylar", email = "senyvlar@gmail.com"}
 ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests",
+    "pydantic",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/senylar/MoyNalogPy"
+"Bug Tracker" = "https://github.com/senylar/MoyNalogPy/issues"
