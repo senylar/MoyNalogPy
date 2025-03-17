@@ -60,7 +60,7 @@ def authenticate():
 
         ds = ProfileStorage(**data)
 
-        with open('profile.json', 'w') as f:
+        with open('MoyNalogPy/profile.json', 'w') as f:
             try:
                 # Пробуем использовать model_dump() (Pydantic v2)
                 f.write(json.dumps(ds.model_dump()))

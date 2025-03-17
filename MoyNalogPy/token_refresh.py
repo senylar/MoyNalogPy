@@ -1,6 +1,6 @@
 import functools
 import requests
-from schemas import ProfileStorage
+from .schemas import ProfileStorage
 
 
 def refresh_token():

@@ -7,15 +7,15 @@ from http.client import HTTPResponse, HTTPException
 from random import random
 
 import requests
-from schemas import Service, Client, ProfileStorage, Incomes, Receipt, UserProfile
-from token_refresh import apply_token_refresh
+from MoyNalogPy.schemas import Service, Client, ProfileStorage, Incomes, Receipt, UserProfile
+from MoyNalogPy.token_refresh import apply_token_refresh
 
 
 
 
 
 @apply_token_refresh
-class MyTax:
+class MoyNalog:
 
     def __init__(self, timezone_shift = None):
 
@@ -138,5 +138,3 @@ class MyTax:
 
 
 
-m = MyTax()
-print(m.get_incomes(startDate="2024-03-16T20:06:30.312+03:00", endDate="2025-03-16T20:17:30.313+03:00", offset=0, sortBy="total_amount:desc",limit=5))
