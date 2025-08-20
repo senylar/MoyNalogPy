@@ -51,32 +51,7 @@ class ProfileStorage(BaseModel):
     sourceDeviceId : str = Field(required=True)
     profile : dict
 
-    @classmethod
-    def get(cls):
-        """
-        Метод для получения экземпляра класса ProfileStorage из файла profile.json.
 
-        :return: экземпляр класса ProfileStorage
-        """
-        profile_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'profile.json')
-        with open(profile_path, 'r') as f:
-            data = json.loads(f.read())
-            return cls.model_validate(data)
-
-    def save(self):
-        """
-        Метод для сохранения экземпляра класса ProfileStorage в файл profile.json.
-
-        :return: None
-        """
-        profile_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'profile.json')
-        with open(profile_path, 'w') as f:
-            try:
-                # Пробуем использовать model_dump() (Pydantic v2)
-                f.write(json.dumps(self.model_dump()))
-            except AttributeError:
-                # Запасной вариант для Pydantic v1
-                f.write(json.dumps(self.dict()))
 
 
 class CancellationInfo(BaseModel):

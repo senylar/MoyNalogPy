@@ -17,12 +17,21 @@ from MoyNalogPy.token_refresh import apply_token_refresh
 @apply_token_refresh
 class MoyNalog:
 
-    def __init__(self, timezone_shift = None):
+    def __init__(self, user_id, phone_number, timezone_shift = None,token=None, refresh_token=None ):
 
         self.timezone_shift = timezone_shift if timezone_shift else 3
-        self.profile = ProfileStorage.get()
-        self.auth = {"Authorization" : "Bearer " + self.profile.token}
+        self.user_id = user_id
+        self.phone_number = phone_number
+        self.token = token
+        self.refresh_token = refresh_token
 
+
+    @property
+    def auth(self):
+        """
+        Возвращает заголовок авторизации с токеном.
+        """
+        return {"Authorization": "Bearer " + self.token}
 
     def __get_curtime(self):
         tz = timezone(timedelta(hours=self.timezone_shift))
