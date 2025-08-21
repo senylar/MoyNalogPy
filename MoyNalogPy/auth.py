@@ -37,7 +37,10 @@ class Authentication:
             "phone": self.phone_number,
             "requireTpToBeActive": True
         }
-        data_start = requests.post('https://lknpd.nalog.ru/api/v2/auth/challenge/sms/start', json=req)
+        try:
+            data_start = requests.post('https://lknpd.nalog.ru/api/v2/auth/challenge/sms/start', json=req)
+        except RequestException as e:
+            raise Exception(f"Network error during authentication initiation: {e}")
 
         if data_start.status_code == 200:
             challenge_token = data_start.json()['challengeToken']
