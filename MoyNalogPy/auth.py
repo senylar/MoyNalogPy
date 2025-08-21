@@ -1,8 +1,7 @@
 import random
 import string
-from MoyNalog import MoyNalog
-from MoyNalogPy import ProfileStorage
 import requests
+from MoyNalogPy.schemas.schemas import ProfileStorage
 
 class Authentication:
 
@@ -12,7 +11,7 @@ class Authentication:
         self.challenge_token = None
 
 
-    def generate_device_id(length=16):
+    def generate_device_id(self, length=16):
         """
         Генерирует случайный идентификатор устройства заданной длины
 

@@ -1,10 +1,26 @@
 [project]
-name = "MoyNalogPy"
-version = "0.1.0"
-description = "Add your description here"
+name = "moy-nalog-py"
+version = "0.2.1"
+description = "Python клиент для работы с API сервиса Мой налог"
+authors = [
+    {name = "senylar", email = "senyvlar@gmail.com"}
+]
+readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "pydantic>=2.10.6",
     "requests>=2.32.3",
     "sqlmodel>=0.0.24",
 ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/senylar/MoyNalogPy"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
