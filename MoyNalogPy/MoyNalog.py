@@ -31,6 +31,8 @@ class MoyNalog:
         """
         Возвращает заголовок авторизации с токеном.
         """
+        if not self.token:
+            raise ValueError("Token is required for authorization")
         return {"Authorization": "Bearer " + self.token}
 
     def __get_curtime(self):
