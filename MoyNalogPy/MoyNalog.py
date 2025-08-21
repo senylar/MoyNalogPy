@@ -18,7 +18,8 @@ from MoyNalogPy.token_refresh import apply_token_refresh
 class MoyNalog:
 
     def __init__(self, user_id, phone_number, timezone_shift = None,token=None, refresh_token=None ):
-
+        if (token is None) != (refresh_token is None):
+            raise ValueError("Either both 'token' and 'refresh_token' must be provided, or neither.")
         self.timezone_shift = timezone_shift if timezone_shift else 3
         self.user_id = user_id
         self.phone_number = phone_number
