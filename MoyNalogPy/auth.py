@@ -43,7 +43,7 @@ class Authentication:
             challenge_token = data_start.json()['challengeToken']
             self.challenge_token = challenge_token
         else:
-            raise Exception("Failed to start authentication process.")
+            raise Exception(f"Failed to start authentication process. Status: {data_start.status_code}, Response: {data_start.text}")
 
     def authenticate(self, code):
         """
