@@ -1,7 +1,9 @@
 import random
 import string
 import requests
-from MoyNalogPy.schemas.schemas import ProfileStorage
+from requests.exceptions import RequestException
+
+from schemas import ProfileStorage
 
 class Authentication:
 

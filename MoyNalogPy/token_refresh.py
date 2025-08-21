@@ -29,7 +29,7 @@ def refresh_token():
             data.save()
             print("Token refreshed successfully.")
         else:
-            raise Exception("Что то пошло не так.\nДля устранения проблемы попробуйте удалить файл profile.json и заново пройти аутентификацию.\nДля этого запустите команду 'python auth.py'")
+            raise Exception("Что то пошло не так.\nДля устранения проблемы попробуйте удалить файл profile.json и заново пройти аутентификацию.\nДля этого запустите команду 'python authOLD.py'")
 
 
 

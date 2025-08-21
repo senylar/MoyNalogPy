@@ -4,7 +4,6 @@ import os
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
-
 class Service(BaseModel):
     """
     Модель услуги.
@@ -26,8 +25,6 @@ class Client(BaseModel):
     Атрибуты:
         contactPhone (str, optional): Контактный телефон клиента.
         displayName (str, optional): Отображаемое имя клиента.
-        inn (str, optional): ИНН клиента.
-        incomeType (str, optional): Тип дохода клиента. По умолчанию "FROM_INDIVIDUAL".
     """
     contactPhone : str = Field(default=None)
     displayName : str = Field(default=None)
@@ -36,15 +33,6 @@ class Client(BaseModel):
 
 
 class ProfileStorage(BaseModel):
-    """
-    Модель хранения профиля.
-
-    Атрибуты:
-        refreshToken (str): Токен обновления.
-        token (str): Токен.
-        sourceDeviceId (str): Идентификатор исходного устройства.
-        profile (dict): Профиль пользователя.
-    """
 
     refreshToken : str = Field(required=True)
     token : str = Field(required=True)
@@ -56,6 +44,7 @@ class ProfileStorage(BaseModel):
 class CancellationInfo(BaseModel):
     """
     Информация об отмене чека.
+
 
     Атрибуты:
         operationTime (str): Время операции.

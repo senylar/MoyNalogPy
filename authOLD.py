@@ -3,7 +3,7 @@ import random
 import requests
 import json
 
-from schemas.schemas import ProfileStorage
+from MoyNalogPy.schemas import ProfileStorage
 
 
 def generate_device_id(length=16):
@@ -29,12 +29,12 @@ def authenticate():
     phone_number = input("Enter your phone number: ")
     req = {
         "phone": phone_number,
-            "requireTpToBeActive": True
+        "requireTpToBeActive": True
     }
     data_start = requests.post('https://lknpd.nalog.ru/api/v2/auth/challenge/sms/start', json=req)
-
+    print(data_start)
     challengeToken = data_start.json()['challengeToken']
-
+    print(123)
     code = input("Enter the code from sms: ")
     device_id = generate_device_id()
 
@@ -75,5 +75,5 @@ def authenticate():
         print(data.json())
 
 
-def main():
+if __name__ == "__main__":
     authenticate()
