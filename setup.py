@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="moynalog",
-    version="0.1.0",
+    name="moy-nalog-py",
+    version="0.2.0",
     author="senylar",
     author_email="senyvlar@gmail.com",
     description="Python клиент для работы с API сервиса Мой налог",

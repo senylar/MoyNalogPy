@@ -29,7 +29,7 @@ def authenticate():
     phone_number = input("Enter your phone number: ")
     req = {
         "phone": phone_number,
-        "requireTpToBeActive": True
+            "requireTpToBeActive": True
     }
     data_start = requests.post('https://lknpd.nalog.ru/api/v2/auth/challenge/sms/start', json=req)
 
