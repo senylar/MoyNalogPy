@@ -74,4 +74,4 @@ class Authentication:
             profile_storage = ProfileStorage(**data)
             return profile_storage
         else:
-            raise Exception("Authentication failed.")
+            raise Exception(f"Authentication failed. Status: {data.status_code}, Response: {data.text}")
