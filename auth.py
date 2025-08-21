@@ -75,5 +75,5 @@ def authenticate():
         print(data.json())
 
 
-if __name__ == "__main__":
+def main():
     authenticate()

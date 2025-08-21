@@ -53,7 +53,6 @@ class ProfileStorage(BaseModel):
 
 
 
-
 class CancellationInfo(BaseModel):
     """
     Информация об отмене чека.
