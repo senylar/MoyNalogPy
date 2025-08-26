@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "moy-nalog-py"
 
-version = "0.2.0"
+version = "0.2.1"
 
 description = "Python клиент для работы с API сервиса Мой налог"
 authors = [
