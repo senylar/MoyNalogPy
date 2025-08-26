@@ -3,7 +3,7 @@ import string
 import requests
 from requests.exceptions import RequestException
 
-from schemas import ProfileStorage
+from MoyNalogPy.schemas import ProfileStorage
 
 class Authentication:
 
